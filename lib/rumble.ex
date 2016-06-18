@@ -10,7 +10,7 @@ defmodule Rumble do
       # Start the endpoint when the application starts
       supervisor(Rumble.Endpoint, []),
       # Start the Ecto repository
-      # supervisor(Rumble.Repo, []),
+      supervisor(Rumble.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(Rumble.Worker, [arg1, arg2, arg3]),
     ]
