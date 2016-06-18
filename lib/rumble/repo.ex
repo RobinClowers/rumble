@@ -13,4 +13,16 @@ defmodule Rumble.Repo do
     ]
   end
   def all(_module), do: []
+
+  def get(module, id) do
+    module
+    |> all
+    |> Enum.find(&(&1.id == id))
+  end
+
+  def get_by(module, params) do
+    Enum.find all(module), fn map ->
+      Enum.all?(params, fn {key, value} -> Map.get(map, key) == value end)
+    end
+  end
 end
